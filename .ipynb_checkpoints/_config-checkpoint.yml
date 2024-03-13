@@ -1,0 +1,76 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Apuntes de circuitos lógicos UPIIH IPN
+author: Dr. Luis Gerardo Trujillo Franco
+logo: logo_UPIIH.jpeg
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  #execute_notebooks: auto
+  #execute_notebooks: cache
+  #execute_notebooks: 'off'
+  exclude_patterns: 
+                - Practica1.ipynb
+                - Practica3.ipynb
+                - Practica4.ipynb
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+parse:
+myst_enable_extensions : [
+    "amsmath",
+    "attrs_inline",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "linkify",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
+]
+  
+sphinx:
+  config:
+    language: es
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    #nb_execution_mode: auto
+    execute:
+      execute_excludepatterns: 
+         -'Practica1.ipynb'
+         -'Practica3.ipynb'
+         -'Practica4.ipynb'
+         
+html_extra_path: ['./_static/videos']
+
+            
+launch_buttons:
+   notebook_interface: "jupyterlab"
+   #thebe                  : true
+   #colab_url: "https://colab.research.google.com"
+   
+only_build_toc_files: true
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - wileyNJDAMA.bib
+
+# Information about where the book exists on the web
+#repository:
+#  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+#  path_to_book: docs  # Optional path to your book, relative to the repository root
+#  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+#html:
+#  use_issues_button: true
+#  use_repository_button: true
