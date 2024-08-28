@@ -18,4 +18,4 @@ git push
 
 ghp-import -n -p -f _build/html
 
-.\subir_a_github.bat
+.\subir_a_github_electronica.bat

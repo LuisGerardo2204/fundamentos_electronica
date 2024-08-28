@@ -5,6 +5,7 @@ format: jb-book
 root: intro
 chapters:
 - file: Fundamentos.md
+- file: diodo.md
 #- file: Practica1
 #- file: Practica2
 #- file: Practica3
