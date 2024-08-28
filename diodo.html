@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="es" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El diodo rectificador &#8212; Apuntes de circuitos lógicos UPIIH IPN</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/myfile-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'diodo';</script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Bibliografía" href="Bibliograf%C3%ADa.html" />
+    <link rel="prev" title="Conceptos fundamentales en electrónica: ¿Qué es la electrónica?" href="Fundamentos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_UPIIH.jpeg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo_UPIIH.jpeg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Fundamentos de electrónica
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Fundamentos.html">Conceptos fundamentales en electrónica: ¿Qué es la electrónica?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">El diodo rectificador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bibliograf%C3%ADa.html">Bibliografía</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/diodo.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>El diodo rectificador</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcionamiento-de-los-semiconductores">Funcionamiento de los semiconductores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-de-la-union-p-n">Configuraciones de la unión <strong>p-n</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-caracteristica-aproximada-del-diodo">Curva característica aproximada del diodo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="el-diodo-rectificador">
+<h1>El diodo rectificador<a class="headerlink" href="#el-diodo-rectificador" title="Permalink to this heading">#</a></h1>
+<p>Los semiconductores son los elementos principales de la electrónica. Son los componentes activos por excelencia y son los tabiques con los que se construyen los sistemas electrónicos, desde los más elementales como un diodo usado como protección contra inversión de polaridad,
+hasta los más complejos microcontontroladores de la computadora de a bordo de los automóviles. Los semiconductores son esencialmente materiales, con una característica muy peculiar que los distingue y permite el funcionamiento aún del mundo digital que conocemos y en estos días abarca innumerables aspectos de nuestra vida cotidiana.</p>
+<p>En concreto, la característica de la que hablamos es, es unas cuantas palabras:</p>
+<p><strong>La capacidad de permitir el flujo de electrones a través de ellos de manera controlada en dirección y o intensidad.</strong></p>
+<p>Dicho de otra forma, son capaces de procesar señales eléctricas, es decir, estos materiales son la base de los componentes activos.</p>
+<p>Cuando hablamos del flujo de electrones, o la corriente eléctrica, podemos hacer una analogía con el flujo de agua en las tuberías de un hogar.
+Deseamos que fluya en ciertos momentos, en otros momentos deseamos que esté más caliente, en otros deseamos que fluya en una sola dirección…
+esto es una clara alusión a los rectificadores como el visto en la sección anterior.</p>
+<div class="section" id="funcionamiento-de-los-semiconductores">
+<h2>Funcionamiento de los semiconductores<a class="headerlink" href="#funcionamiento-de-los-semiconductores" title="Permalink to this heading">#</a></h2>
+<p>En los acuarios domésticos que alojan a los peces de ornato, tenemos un ejemplo que sirve para ilustrar de manera coloquial el funcionamiento de los semiconductores.</p>
+<div class="figure align-default" id="figurad1">
+<a class="reference internal image-reference" href="_images/diodo_pecera.png"><img alt="_images/diodo_pecera.png" src="_images/diodo_pecera.png" style="height: 350px;" /></a>
+<p class="caption"><span class="caption-number">Figura 9 </span><span class="caption-text">Una analogía de un semiconductor.</span><a class="headerlink" href="#figurad1" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+<p>En esta pecera, montada en un gabinete, la bomba de aire, además del resto del equipo de soporte vital, como el filtro de agua y demás enseres se encuentran debajo.
+Si el difusor de aire dentro de la pecera se encuentra en el fondo de la misma, el agua tiende a fugarse usándolo como conducto, esto se debe a la presión del líquido.</p>
+<p>Si se interrumpe la energía eléctrica, la bomba de aire deja de trabajar y el agua, debido a la presión en el fondo del tanque, se dirige hacia
+la bomba de aire que está muy por debajo del nivel del líquido y se arruinaría, sin mencionar que muy probablemente se inundaría el gabinete. La solución a este problema es muy simple,
+se añade un componente entre la salida de la bomba de aire y el difusor sumergido en el fondo de la pecera. Se añade una válvula conocida como check.</p>
+<p>Una válvula check para acuario permite el flujo de aire en un solo sentido.</p>
+<div class="figure align-default" id="figurad2">
+<a class="reference internal image-reference" href="_images/bomba_diodo.png"><img alt="_images/bomba_diodo.png" src="_images/bomba_diodo.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figura 10 </span><span class="caption-text">Una analogía de un diodo semiconductor.</span><a class="headerlink" href="#figurad2" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+<p>Este elemento de protección es el análogo perfecto de la aplicación de un diodo semiconductor de protección. El ejemplo anterior sirve para abrir
+la discusión acerca de los semiconductores. Un material conductor de la electricidad permite el paso de los electrones sin importar la polaridad o
+la dirección que siga el flujo de electrones. Un material semiconductor permite el flujo de electrones o, dicho de otra forma, conduce la electricidad
+con restricciones como las siguientes:</p>
+<p>*En una sola dirección (con una polaridad).
+*Restringido de forma controlada(como una resistencia variable).
+*De manera intermitente o como un interruptor.</p>
+<p>Sin entrar en detalles, el diodo semiconductor es básicamente una unión llamada pn que consiste en un material semiconductor
+tipo <strong>p</strong> (basado en el silicio) que se pone en contacto con otro material semiconductor <strong>n</strong> del tipo (también basado en el silicio).</p>
+<div class="figure align-default" id="figurad3">
+<a class="reference internal image-reference" href="_images/union_pn.png"><img alt="_images/union_pn.png" src="_images/union_pn.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figura 11 </span><span class="caption-text">Esquema básico de un diodo semiconductor.</span><a class="headerlink" href="#figurad3" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+<p>En la práctica, tanto la región p como la región n son parte del mismo cristal de silicio, esto es, la unión pn se forma dentro de un solo cristal de silicio al crear regiones de diferentes características, también se conoce como de diferente dopaje (regiones p y n).
+El siguiente video muestra el proceso de fabricación de semiconductores:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=YroyIXq2Iz0">https://www.youtube.com/watch?v=YroyIXq2Iz0</a></p>
+<p>En este curso nos concretaremos en las aplicaciones prácticas de los semiconductores sin entrar en detalles de la fisicoquímica que los modela.
+Así , entraremos en materia de forma directa analizando las tres diferentes condiciones de la unión pn. A saber:</p>
+<p>1.- Circuito abierto, es decir desconectada de ambas terminales.
+2.- Polarización inversa: polo positivo de la fuente de alimentación al contacto n y polo negativo de la fuente de alimentación contacto p.
+3.- Polarización directa: polo positivo de la fuente de alimentación al contacto p y polo negativo de la fuente de alimentación contacto n.</p>
+<div class="section" id="configuraciones-de-la-union-p-n">
+<h3>Configuraciones de la unión <strong>p-n</strong><a class="headerlink" href="#configuraciones-de-la-union-p-n" title="Permalink to this heading">#</a></h3>
+<p><strong>1.- Unión pn en circuito abierto:</strong></p>
+<div class="figure align-default" id="figurad4">
+<a class="reference internal image-reference" href="_images/pn_abierto.png"><img alt="_images/pn_abierto.png" src="_images/pn_abierto.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figura 12 </span><span class="caption-text">Unión <strong>p-n</strong> en circuito abierto.</span><a class="headerlink" href="#figurad4" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+<p>En la figura se muestran una unión <em>pn</em> en condiciones de circuito abierto, esto significa que los terminales externos se dejan sin conexión alguna.
+El signo <strong>+</strong> del material p denota huecos llamados mayoritarios, en esta condición, la carga de estos huecos se neutraliza por una carga latente
+negativa asociada, algo similar sucede en el lado negativo del diodo, los electrones libres simbolizados por el signo <strong>–</strong> son neutralizados por
+la carga latente.</p>
+<p>Algunos conceptos básicos del diagrama anterior son: la corriente de difusión <span class="math notranslate nohighlight">\(I_d\)</span>: Es una corriente eléctrica que se produce debido al intercambio
+entre electrones (cargas negativas <strong>–</strong>) y huecos
+(cargas positivas <strong>+</strong>). Estas dos componentes de corriente se suman para formar la corriente de difusión Id cuya dirección es del lado p al lado n
+como se ilustra en la figura.</p>
+<p>Algunos conceptos básicos del diagrama anterior son:</p>
+<p>La corriente de difusión Id: Es una corriente eléctrica que se produce debido al intercambio entre electrones (cargas negativas <strong>-</strong>)
+y huecos (cargas positivas <strong>+</strong>). Estas dos componentes de corriente se suman para formar la corriente de difusión <span class="math notranslate nohighlight">\(I_d\)</span> cuya dirección es del
+lado <strong>p</strong> al lado n como se ilustra en la figura.</p>
+<p>La región de agotamiento: Existe una región de agotamiento de portadores en ambos lados de la unión, con el lado <strong>n</strong> de dicha unión cargado
+positivamente y el lado <strong>p</strong> cargado negativamente. Esta situación se da en el caso de circuito abierto y mantiene un equilibrio de cargas.</p>
+<p>La corriente de desplazamiento <span class="math notranslate nohighlight">\(I_s\)</span> y equilibrio: Además de la componente de corriente <span class="math notranslate nohighlight">\(I_d\)</span>, debida a la difusión de portadores mayoritarios,
+existe una componente debida al desplazamiento de portadores minoritarios a través de la unión. Específicamente, algunos de los huecos generados
+térmicamente en el material n se difunden en el material n al borde de la región de agotamiento. En condiciones de circuito abierto sucede que,
+dado que no existe una corriente externa, las dos corrientes <span class="math notranslate nohighlight">\(I_d\)</span> e <span class="math notranslate nohighlight">\(I_s\)</span> deben se iguales en magnitud:</p>
+<div class="math notranslate nohighlight">
+\[
+I_d=I_s
+\]</div>
+<p>Esta es una condición de equilibrio que se mantiene por el voltaje presente en la barrera (debido a las cargas positiva y negativa de la región de
+agotamiento).</p>
+<p>Si por alguna razón la corriente <span class="math notranslate nohighlight">\(I_d\)</span> excede a la corriente <span class="math notranslate nohighlight">\(I_s\)</span>, entonces más carga latente será descubierta en ambos lados de la unión, la capa de agotamiento se ensancha y la diferencia de potencial entre los terminal de es esta región aumentará.
+Esto provoca que la corriente Id disminuya hasta que se alcance el equilibrio para que se cumpla que <span class="math notranslate nohighlight">\(I_d=I_s\)</span>.</p>
+<p>Por otra parte, si la corriente Is excede a la corriente <span class="math notranslate nohighlight">\(I_d\)</span>, la carga no descubierta no disminuirá, la capa de agotamiento se hace más estrecha y el voltaje en los terminales de la misma disminuye.
+Esto ocasiona que <span class="math notranslate nohighlight">\(I_d\)</span> aumente hasta que se alcanza el equilibrio con <span class="math notranslate nohighlight">\(I_d=Is\)</span>.</p>
+<p><strong>2.- La unión <strong>p-n</strong> en condiciones de polarización inversa.</strong></p>
+<div class="figure align-default" id="figurad5">
+<a class="reference internal image-reference" href="_images/pn_inversa.png"><img alt="_images/pn_inversa.png" src="_images/pn_inversa.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figura 13 </span><span class="caption-text">Unión <strong>p-n</strong> en polarización inversa.</span><a class="headerlink" href="#figurad5" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+<p>La unión pn en polarización inversa  es excitada por una fuente de corriente <span class="math notranslate nohighlight">\(I\)</span> que es constante y se conecta en una dirección inversa a
+la polaridad de la unión. Para evitar que se de una ruptura y conservar el equilibrio, la corriente <span class="math notranslate nohighlight">\(I\)</span> de la fuente se conserva menor que la
+corriente <span class="math notranslate nohighlight">\(I_s\)</span>. En la figura anterior puede notarse que la capa de agotamiento se ensancha y el voltaje o diferencia de potencial <span class="math notranslate nohighlight">\(V_r\)</span> o voltaje
+de barrera aumenta en <span class="math notranslate nohighlight">\(V_r\)</span> volts, que aparece en los terminales con un voltaje inverso.</p>
+<p><strong>3.- La unión <strong>pn</strong> en condiciones de polarización directa.</strong></p>
+<div class="figure align-default" id="figurad6">
+<a class="reference internal image-reference" href="_images/pn_inversa.png"><img alt="_images/pn_inversa.png" src="_images/pn_inversa.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figura 14 </span><span class="caption-text">Unión <strong>p-n</strong> en polariación directa.</span><a class="headerlink" href="#figurad6" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+<p>En la figura se observa la unión pn excitada por una fuente de corriente constante que alimenta una corriente I en la dirección positiva. La capa de
+agotamiento se estrecha y el voltaje de barrera decrece en V volts, que aparece como voltaje externo en la dirección positiva.</p>
+<p>Los diagramas anteriores tienen por objetivo explicar de manera muy condensada y resumida el funcionamiento de las uniones de material semiconductor, una parte del tipo p y otra parte del tipo n.</p>
+<p><strong>Esta unión de materiales es la base de la electrónica, y es la estructura principal y general del primer componente electrónico que analizaremos
+en este curso.</strong></p>
+<p>Una forma sencilla de resumir lo explicado en las láminas anteriores es: Al construir una unión de dos materiales semiconductores, un material
+del tipo p y uno del tipo <strong>n</strong>, se consigue un elemento activo, capaz de conducir la electricidad en un solo sentido, se consigue tener un análogo
+a la válvula check de los sistemas hidráulicos, ese componente se conoce como diodo.</p>
+<p>Un diodo es un elemento no lineal de los sistemas electrónicos. Es un elemento no lineal por que su comportamiento no es tan sencillo de modelar como lo es el de una resistencia o inclusive un amplificador operacional cuando es visto como un bloque de entrada-salida de propósito específico.
+Un diodo puede ser considerado como el elemento fundamental de los circuitos no lineales. Es un dispositivo de únicamente dos terminales o conexiones eléctricas.</p>
+</div>
+</div>
+<div class="section" id="curva-caracteristica-aproximada-del-diodo">
+<h2>Curva característica aproximada del diodo<a class="headerlink" href="#curva-caracteristica-aproximada-del-diodo" title="Permalink to this heading">#</a></h2>
+<p>Un diodo es un elemento no lineal de los sistemas electrónicos. Es un elemento no lineal por que su comportamiento no es tan sencillo de modelar como
+lo es el de una resistencia o inclusive un amplificador operacional cuando es visto como un bloque de entrada-salida de propósito específico.</p>
+<p>Un diodo puede ser considerado como el elemento fundamental de los circuitos no lineales. Es un dispositivo de únicamente dos terminales o conexiones
+eléctricas. El símbolo en un diagrama eléctrico para un diodo se muestra abajo al lado de su curva característica.</p>
+<div class="figure align-default" id="figurad7">
+<a class="reference internal image-reference" href="_images/diodo_curva.png"><img alt="_images/diodo_curva.png" src="_images/diodo_curva.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figura 15 </span><span class="caption-text">El diodo: Símbolo y curva característica.</span><a class="headerlink" href="#figurad7" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+<p>La curva en azul es el comportamiento de la corriente i que circula a través del diodo en cada caso. Cuando el diodo se conecta en
+polarización inversa (Ánodo a negativo, cátodo a positivo) la corriente es cero sin importar el voltaje entre las terminales, en
+polarización directa (cátodo a negativo, ánodo a positivo) la corriente que pasa a través del diodo es diferente de cero.</p>
+<p>En resumen: el comportamiento del diodo respecto a su conducción de la corriente eléctrica en relación a la manera en la que se conecta
+en un circuito o sistema electrónico es el siguiente:</p>
+<div class="figure align-default" id="figurad8">
+<a class="reference internal image-reference" href="_images/diodo_int1.png"><img alt="_images/diodo_int1.png" src="_images/diodo_int1.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figura 16 </span><span class="caption-text">El diodo como interruptor.</span><a class="headerlink" href="#figurad8" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+<p>La figura anterior se resume en las siguientes frases:</p>
+<ul class="simple">
+<li><p><strong>Cuando el diodo se conecta en polarización inversa se comporta como un circuito abierto o un interruptor abierto.</strong></p></li>
+<li><p><strong>Cuando el diodo se conecta en polarización directa se comporta como un circuito cerrado o un interruptor cerrado.</strong></p></li>
+</ul>
+<p>La apariencia física de un diodo es variada según su aplicación, en términos del voltaje al que operan, la frecuencia a la que operan y
+por supuesto la corriente que soportan.</p>
+<div class="figure align-default" id="figurad9">
+<a class="reference internal image-reference" href="_images/diodo_fisicos.png"><img alt="_images/diodo_fisicos.png" src="_images/diodo_fisicos.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Figura 17 </span><span class="caption-text">Diferentes tipos de diodos.</span><a class="headerlink" href="#figurad9" title="Enlace permanente a esta imagen">#</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Fundamentos.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Conceptos fundamentales en electrónica: ¿Qué es la electrónica?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Bibliograf%C3%ADa.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Bibliografía</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcionamiento-de-los-semiconductores">Funcionamiento de los semiconductores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuraciones-de-la-union-p-n">Configuraciones de la unión <strong>p-n</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-caracteristica-aproximada-del-diodo">Curva característica aproximada del diodo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Dr. Luis Gerardo Trujillo Franco
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

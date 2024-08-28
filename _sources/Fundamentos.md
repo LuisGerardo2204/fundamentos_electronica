@@ -14,7 +14,7 @@ Un interruptor transistorizado.
 
 La diferencia práctica más conocida entre las dos ramas de la física, electricidad y electrónica es
 :
-* **La electrónica se ocupa del procesamiento de señales eléctricas, es decir, un circuito electrónico manipula la estructura de la señal que lo alienta o de entrada.**
+* **La electrónica se ocupa del procesamiento de señales eléctricas, es decir, un circuito electrónico manipula la estructura de la señal que lo alimenta o de entrada.**
 * **La electricidad se ocupa del tratamiento de las señales eléctricas y su óptima transmisión.** 
 
 En otras palabras, la mayoría de los componentes que conforman los sistemas eléctricos y eléctricos de potencia son llamados pasivos Los componentes pasivos solo disipan la energía que no se aprovecha por las cargas que alimentan, sin hacer un tratamiento o transformación sustancial en la forma de la corriente que circula a través de ellos.
@@ -78,10 +78,17 @@ Si se cambia la posición del interruptor de acuerdo con la polaridad de la fuen
 :name: figura8
 Circuito rectificador manual.
 
-```
-El circuito electrónico equivalente, que hace la misma función que el rectificador mecánico se llama rectificador de onda completa, se compone de 4 diodos
+```
+
+Para que el circuito anterior funcione correctamente como un rectificador, es necesario saber el instante preciso en el que la fuente cambia de polaridad. Además de eso se debe cambiar la posición del interruptor de manera suficientemente rápida para que a la carga no llegue un voltaje de signo contrario ni siquiera por una fracción de segundo, es decir, si la carga es sensible o se daña con una polaridad invertida, sería prácticamente imposible el funcionamiento de este rectificador por el riesgo de dañar el componente de carga.
+Es entonces donde surge la utilidad y el campo de aplicación de la electrónica como disciplina. Una de las aplicaciones básicas de la electrónica es 
+la conmutación, el interruptor expuesto se vuelve totalmente automático y capaz de operar a muy alta velocidad, en promedio sesenta veces en un solo segundo.
+
+
+El circuito electrónico equivalente, que hace la misma función que el rectificador mecánico se llama rectificador de onda completa, se compone de 4 componentes electrónicos llamados diodos:
+
 ```{figure} /images/rect4.png
-:height: 350px
-:name: figur9a
+:height: 250px
+:name: figura9
 
 ```
