@@ -1,109 +1,84 @@
----
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
-    language: es
-kernelspec:
-  display_name: Octave
-  language: Octave
-  name: Octave
----
+# Conceptos fundamentales en electrónica: ¿Qué es la electrónica?
 
-# Fundamentos de electrónica
+La electrónica es una rama de la física que estudia los cambios y movimientos en los electrones libres y la acción de las fuerzas electromagnéticas. Los conocimientos y las técnicas derivadas de este estudio se aplican en el manejo de la información o en el control de sistemas electromecánicos.
 
-Para empezar con este cuadernillo de prácticas, empezaremos por definir el software MATLAB usando la definición dada por Moore {cite:t}`Moore2007`: ``MATLAB es una de las muchas sofisticadas herramientas de computación disponibles
-en el comercio para resolver problemas de matemáticas, tales como Maple, Mathematica y MathCad... El nombre mismo de MATLAB es una abreviatura de Matrix Laboratory, laboratorio matricial``
-
-
-La interfaz gráfica o ventana principal del software se muestra en la {numref}`figura1`.
-```{figure} /images/figura1.jpg
-:height: 450px
+```{figure} /images/output.png
+:height: 250px
 :name: figura1
-Pantalla principal de MATLAB
+Un interruptor transistorizado.
+
 ```
 
-Las funciones y operaciones básicas, así como los cálculos con fórmulas complejas se llevan a cabo utilizando la ventana de comandos (ver {numref}`figura2`). Esta ventana de comandos recueerda a una calculadora científica, como es posible intuir, la sintaxis para realizar operaciones es muy similar a la que se utiliza en ese tipo de calculadoras. Para realizar una operación básica basta con expresarla con la sintaxis correcta, por ejemplo: 
 
-```{code-cell} Octave
-:tags: [remove-stderr]
-2^3
-```
+## ¿Cuál es la diferencia entre la electricidad y la electrónica? 
 
-Las sub-ventanas principales son las mostradas en las Figuras: {numref}`figura2`, {numref}`fig3`, {numref}`figura4` y {numref}`figura5`.
+La diferencia práctica más conocida entre las dos ramas de la física, electricidad y electrónica es
+:
+* **La electrónica se ocupa del procesamiento de señales eléctricas, es decir, un circuito electrónico manipula la estructura de la señal que lo alienta o de entrada.**
+* **La electricidad se ocupa del tratamiento de las señales eléctricas y su óptima transmisión.** 
 
+En otras palabras, la mayoría de los componentes que conforman los sistemas eléctricos y eléctricos de potencia son llamados pasivos Los componentes pasivos solo disipan la energía que no se aprovecha por las cargas que alimentan, sin hacer un tratamiento o transformación sustancial en la forma de la corriente que circula a través de ellos.
 
-```{figure} /images/figura2a.jpg
-:height: 150px
+```{figure} /images/escalera.png
+:height: 250px
 :name: figura2
-Ventana de comandos (Command window)
+Interruptor de escalera.
 
 ```
-```{figure} /images/figura2b.jpg
-:height: 150px
-:name: fig3
-Area del espacio de trabajo (Workspace)
+En el ejemplo de la figura, vemos componentes pasivos, una lampara incandescente y un par de interruptores. 
+A pesar de que se trata de un apagador para control desde dos puntos, los componentes que conforman el sistema son pasivos, los interruptores solo permiten o interrumpen el paso de la energía eléctrica y el foco o bombilla disipa luz, resultado del calentamiento  de su filamento. Un circuito electrónico: El rectificador de un alternador
+
+```{figure} /images/alternador.png
+:height: 250px
+:name: figura3
+Diagrama de un alternador de vehículo.
 
 ```
 
-```{figure} /images/figura3b.jpg
-:height: 130px
+Además de las bobinas del alternador, el circuito mostrado en la figura consta de componentes cuyo símbolo es una flecha, estos componentes se llaman diodos, los estudiaremos con más detalle en el siguiente tema. La corriente generada por el alternador cambia de dirección, pero al pasar por el conjunto de diodos, solo fluye en una sola dirección. A esta transformación o cambio  que ocurre de una corriente alterna generada a una corriente directa se le llama rectificación. 
+El circuito rectificador del alternador es en conclusión un circuito electrónico por que consta de componentes que, debido a su propiedad de transformar una corriente que cambia en una constante son activos y por tanto capaces de procesar una señal eléctrica. En la figura de abajo podemos ver como se ha transformado la forma que tiene la corriente generada por el alternador en otra diferente que si bien es pulsante, solo circula en una única dirección es decir, no cambia de signo.
+```{figure} /images/rectificada.png
+:height: 250px
 :name: figura4
-Area de la carpeta activa (Current folder)
+Señal del alternador procesada mediante el rectificador.
 
 ```
-```{figure} /images/figura3c.jpg
-:height: 150px
+Otra característica que suele pasar inadvertida cuando se define y se reflexiona en la electrónica, es el hecho de que la transformación de las señales ocurre en periodos muy cortos de tiempo. Los seres humanos podemos reaccionar en segundo pero los sistemas electrónicos lo hacen en periodos tan pequeños de tiempo como milésimas o millonésimas partes de un segundo. Estos procesamientos o transformaciones de señales o tipos de corriente suceden millones de veces en nuestro mundo actual, en una ínfima parte de un segundo.  
+
+Considere el circuito de conexión de un interruptor de doble polo y doble tiro que se muestra en la figura de abajo:
+
+```{figure} /images/interruptor.png
+:height: 250px
 :name: figura5
-Area de inicio general de MATLAB (Home)
+Circuito rectificador manual.
 
 ```
 
-## Operaciones matemáticas comunes
+Cuando la polaridad de la fuente de corriente alterna es la que se muestra en la figura, el interruptor se coloca en la posición uno, lo que provoca que la polaridad en la carga sea la opuesta a la de la fuente:
 
-```{list-table} Operaciones matemáticas 
-:header-rows: 1
-:name: Tabla 01
-* - Sintaxis
-  - Resultado
-* - `sqrt(x)`
-  -  calcula la raiz cuadrada de x
-* - `abs(x)`
-  - calcula el valor absoluto de x
-* - `nthroot(x)`
-  -  calcula la n-ésima raiz de x
-* - `sign(x)`
-  -  regresa el signo de x, -1 si x es negativo, 0 si x es igual a 0 y 1 si x es positivo
-* - `exp(x)`
-  - calcula la exponencial de x, $e^{x}$
-* - `log(x)`
-  - calcula el logaritmo natural de x
-* - `log10(x)`
-  - calcula el coseno inverso de x, devuelve un ángulo en radianes, x debe estar entre -1 y 1
-* - `round(x)`
-  - calcula el logaritmo base 10 de x  
+```{figure} /images/rect1.png
+:height: 250px
+:name: figura6
+Circuito rectificador manual.
+
 ```
 
+Cuando la polaridad de la fuente cambia, el interruptor se coloca en la posición dos, de manera que la polaridad en la carga es la misma aún cuando la polaridad de la fuente se ha invertido:
 
+```{figure} /images/rect2.png
+:height: 250px
+:name: figura7
+Circuito rectificador manual.
 
-```{list-table} Operaciones matemáticas con funciones trigonométricas
-:header-rows: 1
-:name: Tabla 02
-* - Sintaxis
-  - Resultado
-* - `sin(x)`
-  - calcula el seno de x, con x en radianes
-* - `cos(x)`
-  - calcula el coseno de x, con x en radianes
-* - `tan(x)`
-  - calcula la tangente de x, con x en radianes 
-* - `asin(x)`
-  - calcula el seno inverso de x, devuelve un ángulo en radianes, x debe estar entre -1 y 1
-* - `acos(x)`
-  - calcula el coseno inverso de x, devuelve un ángulo en radianes, x debe estar entre -1 y 1
 ```
+
+Si se cambia la posición del interruptor de acuerdo con la polaridad de la fuente de corriente alterna, se consigue que en la carga se tenga siempre la misma polaridad:
+
+```{figure} /images/rect3.png
+:height250px
+:name: figra87
+Circuito rectificador manual.
+
+```
 
 
