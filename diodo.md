@@ -50,7 +50,7 @@ la dirección que siga el flujo de electrones. Un material semiconductor permite
 *Restringido de forma controlada(como una resistencia variable).
 *De manera intermitente o como un interruptor.
 
-Sin entrar en detalles, el diodo semiconductor es básicamente una unión llamada pn que consiste en un material semiconductor
+Sin entrar en detalles, el diodo semiconductor es básicamente una unión llamada **p-n** que consiste en un material semiconductor
  tipo **p** (basado en el silicio) que se pone en contacto con otro material semiconductor **n** del tipo (también basado en el silicio).
 
 ```{figure} /images/union_pn.png
@@ -60,23 +60,23 @@ Esquema básico de un diodo semiconductor.
 
 ```
 
-En la práctica, tanto la región p como la región n son parte del mismo cristal de silicio, esto es, la unión pn se forma dentro de un solo cristal de silicio al crear regiones de diferentes características, también se conoce como de diferente dopaje (regiones p y n). 
+En la práctica, tanto la región **p** como la región **n** son parte del mismo cristal de silicio, esto es, la unión **p-n** se forma dentro de un solo cristal de silicio al crear regiones de diferentes características, también se conoce como de diferente dopaje (regiones **p** y **n**). 
 El siguiente video muestra el proceso de fabricación de semiconductores:
 
 https://www.youtube.com/watch?v=YroyIXq2Iz0
 
 
 En este curso nos concretaremos en las aplicaciones prácticas de los semiconductores sin entrar en detalles de la fisicoquímica que los modela. 
-Así , entraremos en materia de forma directa analizando las tres diferentes condiciones de la unión pn. A saber:
+Así , entraremos en materia de forma directa analizando las tres diferentes condiciones de la unión **p-n**. A saber:
 
 1.- Circuito abierto, es decir desconectada de ambas terminales.
-2.- Polarización inversa: polo positivo de la fuente de alimentación al contacto n y polo negativo de la fuente de alimentación contacto p.
-3.- Polarización directa: polo positivo de la fuente de alimentación al contacto p y polo negativo de la fuente de alimentación contacto n.
+2.- Polarización inversa: polo positivo de la fuente de alimentación al contacto **n** y polo negativo de la fuente de alimentación contacto **p**.
+3.- Polarización directa: polo positivo de la fuente de alimentación al contacto **p** y polo negativo de la fuente de alimentación contacto **n**.
 
 ### Configuraciones de la unión **p-n**
 
 
-**1.- Unión pn en circuito abierto:**
+**1.- Unión p-n en circuito abierto:**
 
 
 ```{figure} /images/pn_abierto.png
@@ -86,28 +86,28 @@ Unión **p-n** en circuito abierto.
 
 ```
 
-En la figura se muestran una unión *pn* en condiciones de circuito abierto, esto significa que los terminales externos se dejan sin conexión alguna. 
-El signo **+** del material p denota huecos llamados mayoritarios, en esta condición, la carga de estos huecos se neutraliza por una carga latente 
+En la figura se muestran una unión **p-n** en condiciones de circuito abierto, esto significa que los terminales externos se dejan sin conexión alguna. 
+El signo **+** del material **p** denota huecos llamados mayoritarios, en esta condición, la carga de estos huecos se neutraliza por una carga latente 
 negativa asociada, algo similar sucede en el lado negativo del diodo, los electrones libres simbolizados por el signo **–** son neutralizados por 
 la carga latente.
 
 Algunos conceptos básicos del diagrama anterior son: la corriente de difusión $I_d$: Es una corriente eléctrica que se produce debido al intercambio 
 entre electrones (cargas negativas **–**) y huecos 
-(cargas positivas **+**). Estas dos componentes de corriente se suman para formar la corriente de difusión Id cuya dirección es del lado p al lado n 
+(cargas positivas **+**). Estas dos componentes de corriente se suman para formar la corriente de difusión $I_d$ cuya dirección es del lado **p** al lado **n** 
 como se ilustra en la figura.
 
 Algunos conceptos básicos del diagrama anterior son:
 
 La corriente de difusión Id: Es una corriente eléctrica que se produce debido al intercambio entre electrones (cargas negativas **-**) 
 y huecos (cargas positivas **+**). Estas dos componentes de corriente se suman para formar la corriente de difusión $I_d$ cuya dirección es del 
-lado **p** al lado n como se ilustra en la figura.
+lado **p** al lado **n** como se ilustra en la figura.
 
 La región de agotamiento: Existe una región de agotamiento de portadores en ambos lados de la unión, con el lado **n** de dicha unión cargado 
 positivamente y el lado **p** cargado negativamente. Esta situación se da en el caso de circuito abierto y mantiene un equilibrio de cargas.
 
 La corriente de desplazamiento $I_s$ y equilibrio: Además de la componente de corriente $I_d$, debida a la difusión de portadores mayoritarios, 
 existe una componente debida al desplazamiento de portadores minoritarios a través de la unión. Específicamente, algunos de los huecos generados 
-térmicamente en el material n se difunden en el material n al borde de la región de agotamiento. En condiciones de circuito abierto sucede que, 
+térmicamente en el material **n** se difunden en el material **n** al borde de la región de agotamiento. En condiciones de circuito abierto sucede que, 
 dado que no existe una corriente externa, las dos corrientes $I_d$ e $I_s$ deben se iguales en magnitud:
 
 $$
@@ -132,32 +132,32 @@ Unión **p-n** en polarización inversa.
 
 ```
 
-La unión pn en polarización inversa  es excitada por una fuente de corriente $I$ que es constante y se conecta en una dirección inversa a 
+La unión **p-n** en polarización inversa  es excitada por una fuente de corriente $I$ que es constante y se conecta en una dirección inversa a 
 la polaridad de la unión. Para evitar que se de una ruptura y conservar el equilibrio, la corriente $I$ de la fuente se conserva menor que la 
 corriente $I_s$. En la figura anterior puede notarse que la capa de agotamiento se ensancha y el voltaje o diferencia de potencial $V_r$ o voltaje 
 de barrera aumenta en $V_r$ volts, que aparece en los terminales con un voltaje inverso. 
 
-**3.- La unión **pn** en condiciones de polarización directa.**
+**3.- La unión **p-n** en condiciones de polarización directa.**
 
-```{figure} /images/pn_inversa.png
+```{figure} /images/pn_directa.png
 :height: 250px
 :name: figurad6
 Unión **p-n** en polariación directa.
 
 ```
 
-En la figura se observa la unión pn excitada por una fuente de corriente constante que alimenta una corriente I en la dirección positiva. La capa de 
-agotamiento se estrecha y el voltaje de barrera decrece en V volts, que aparece como voltaje externo en la dirección positiva.
+En la figura se observa la unión **p-n** excitada por una fuente de corriente constante que alimenta una corriente $I$ en la dirección positiva. La capa de 
+agotamiento se estrecha y el voltaje de barrera decrece en $V$ volts, que aparece como voltaje externo en la dirección positiva.
 
 
-Los diagramas anteriores tienen por objetivo explicar de manera muy condensada y resumida el funcionamiento de las uniones de material semiconductor, una parte del tipo p y otra parte del tipo n.
+Los diagramas anteriores tienen por objetivo explicar de manera muy condensada y resumida el funcionamiento de las uniones de material semiconductor, una parte del tipo **p** y otra parte del tipo **n**.
 
 **Esta unión de materiales es la base de la electrónica, y es la estructura principal y general del primer componente electrónico que analizaremos 
 en este curso.**
 
 
 Una forma sencilla de resumir lo explicado en las láminas anteriores es: Al construir una unión de dos materiales semiconductores, un material 
-del tipo p y uno del tipo **n**, se consigue un elemento activo, capaz de conducir la electricidad en un solo sentido, se consigue tener un análogo 
+del tipo **p** y uno del tipo **n**, se consigue un elemento activo, capaz de conducir la electricidad en un solo sentido, se consigue tener un análogo 
 a la válvula check de los sistemas hidráulicos, ese componente se conoce como diodo.
 
 Un diodo es un elemento no lineal de los sistemas electrónicos. Es un elemento no lineal por que su comportamiento no es tan sencillo de modelar como lo es el de una resistencia o inclusive un amplificador operacional cuando es visto como un bloque de entrada-salida de propósito específico.
@@ -179,7 +179,7 @@ El diodo: Símbolo y curva característica.
 
 ```
 
-La curva en azul es el comportamiento de la corriente i que circula a través del diodo en cada caso. Cuando el diodo se conecta en 
+La curva en azul es el comportamiento de la corriente $i$ que circula a través del diodo en cada caso. Cuando el diodo se conecta en 
 polarización inversa (Ánodo a negativo, cátodo a positivo) la corriente es cero sin importar el voltaje entre las terminales, en 
 polarización directa (cátodo a negativo, ánodo a positivo) la corriente que pasa a través del diodo es diferente de cero.
 
